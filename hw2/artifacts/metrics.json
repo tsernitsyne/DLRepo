@@ -1,0 +1,291 @@
+{
+  "track": "nlp",
+  "model": "ai-forever/ruBert-base",
+  "revision": "05f37a2ca9e333fd18f30cd0c96c68d274793c69",
+  "dataset": "RCC-MSU/collection3",
+  "classes": [
+    "LOC",
+    "ORG",
+    "PER"
+  ],
+  "n_train": 9301,
+  "n_val": 2153,
+  "n_test": 1922,
+  "params_total": 177722119,
+  "baseline": {
+    "majority": {
+      "f1_micro": 0.5613437195715676,
+      "f1_macro": 0.5785510074917143,
+      "precision": 0.5625762381068553,
+      "recall": 0.5601165897498178
+    },
+    "random_head": {
+      "f1_micro": 0.02606221302463946,
+      "f1_macro": 0.027585267082012654,
+      "precision": 0.015032265284046402,
+      "recall": 0.09788681078455186
+    }
+  },
+  "final": {
+    "f1_micro": 0.9504532472370545,
+    "f1_macro": 0.9483067545656079,
+    "precision": 0.944471865745311,
+    "recall": 0.9565108722819295,
+    "token_f1": 0.9555250514756348,
+    "per_type": {
+      "LOC": {
+        "precision": 0.9694656488549618,
+        "recall": 0.9727659574468085,
+        "f1-score": 0.9711129991503823,
+        "support": 1175
+      },
+      "ORG": {
+        "precision": 0.8667174409748667,
+        "recall": 0.9060509554140127,
+        "f1-score": 0.8859478396263137,
+        "support": 1256
+      },
+      "PER": {
+        "precision": 0.9910256410256411,
+        "recall": 0.9847133757961783,
+        "f1-score": 0.9878594249201278,
+        "support": 1570
+      }
+    }
+  },
+  "ablation": {
+    "setting": "freeze",
+    "split": "validation",
+    "baseline": {
+      "f1_micro": 0.9472292342829667,
+      "f1_macro": 0.9449299145131475,
+      "precision": 0.9376487386958591,
+      "recall": 0.9570075297546757,
+      "seconds": 350.165285199997,
+      "trainable_params": 177722119
+    },
+    "variant": {
+      "f1_micro": 0.1510654490106545,
+      "f1_macro": 0.1078692788101329,
+      "precision": 0.3485513608428446,
+      "recall": 0.09642943891182901,
+      "seconds": 95.75267039999017,
+      "trainable_params": 5383
+    }
+  },
+  "errors": {
+    "correct": 3940,
+    "boundary": 89,
+    "type": 23,
+    "missed": 65,
+    "spurious": 122
+  },
+  "device": "NVIDIA GeForce RTX 3050 Laptop GPU",
+  "train_time_sec": 350.165285199997,
+  "fast_mode": false,
+  "bonus": {
+    "6.1": {
+      "scores": {
+        "f1_micro": 0.7839195979899498,
+        "f1_macro": 0.7930625583566759,
+        "precision": 0.75,
+        "recall": 0.8210526315789474,
+        "token_f1": 0.8848758465011287,
+        "per_type": {
+          "LOC": {
+            "precision": 0.7209302325581395,
+            "recall": 0.96875,
+            "f1-score": 0.8266666666666667,
+            "support": 32
+          },
+          "ORG": {
+            "precision": 0.6060606060606061,
+            "recall": 0.5714285714285714,
+            "f1-score": 0.588235294117647,
+            "support": 35
+          },
+          "PER": {
+            "precision": 0.9642857142857143,
+            "recall": 0.9642857142857143,
+            "f1-score": 0.9642857142857143,
+            "support": 28
+          }
+        }
+      },
+      "n_sentences": 54,
+      "groups": {
+        "news": {
+          "f1_micro": 0.8205128205128205,
+          "f1_macro": 0.8496732026143791,
+          "precision": 0.8,
+          "recall": 0.8421052631578947
+        },
+        "messages": {
+          "f1_micro": 0.8928571428571429,
+          "f1_macro": 0.8659060238007606,
+          "precision": 0.8928571428571429,
+          "recall": 0.8928571428571429
+        },
+        "difficult": {
+          "f1_micro": 0.6461538461538462,
+          "f1_macro": 0.6936026936026937,
+          "precision": 0.5833333333333334,
+          "recall": 0.7241379310344828
+        }
+      }
+    },
+    "6.2": {
+      "models": {
+        "ai-forever/ruBert-base": {
+          "validation": {
+            "f1_micro": 0.9472292342829667,
+            "f1_macro": 0.9449299145131475
+          },
+          "test": {
+            "f1_micro": 0.9504532472370545,
+            "f1_macro": 0.9483067545656079
+          },
+          "train_seconds": 350.165285199997,
+          "inference_ms": 30.843541666399688,
+          "params": 177722119,
+          "parameter_mib": 677.9560813903809
+        },
+        "cointegrated/rubert-tiny2": {
+          "validation": {
+            "f1_micro": 0.8923656040465828,
+            "f1_macro": 0.889811881700961
+          },
+          "test": {
+            "f1_micro": 0.8979442890159348,
+            "f1_macro": 0.8947607527542275
+          },
+          "train_seconds": 73.6422992000007,
+          "inference_ms": 14.156908332855286,
+          "params": 29098303,
+          "parameter_mib": 111.00121688842773
+        }
+      },
+      "tiny_revision": "e8ed3b0c8bbf4fb6984c3de043bf7d2f4e5969ae",
+      "device": "NVIDIA GeForce RTX 3050 Laptop GPU",
+      "batch_size": 16,
+      "repeats": 12
+    },
+    "6.3": {
+      "variants": {
+        "clean": {
+          "f1_micro": 0.9472292342829667,
+          "f1_macro": 0.9449299145131475,
+          "precision": 0.9376487386958591,
+          "recall": 0.9570075297546757,
+          "delta_f1": 0.0,
+          "changed_words": 0,
+          "changed_tokenizations": 0
+        },
+        "lowercase": {
+          "f1_micro": 0.9472292342829667,
+          "f1_macro": 0.9449299145131475,
+          "precision": 0.9376487386958591,
+          "recall": 0.9570075297546757,
+          "delta_f1": 0.0,
+          "changed_words": 8033,
+          "changed_tokenizations": 0
+        },
+        "uppercase": {
+          "f1_micro": 0.9472292342829667,
+          "f1_macro": 0.9449299145131475,
+          "precision": 0.9376487386958591,
+          "recall": 0.9570075297546757,
+          "delta_f1": 0.0,
+          "changed_words": 33997,
+          "changed_tokenizations": 0
+        },
+        "typo": {
+          "f1_micro": 0.8886075949367088,
+          "f1_macro": 0.8884763514204904,
+          "precision": 0.8443035206647714,
+          "recall": 0.9378188000971581,
+          "delta_f1": -0.05862163934625786,
+          "changed_words": 3994,
+          "changed_tokenizations": 1694
+        },
+        "translit": {
+          "f1_micro": 0.07418738049713193,
+          "f1_macro": 0.08236030404496027,
+          "precision": 0.0541415494530029,
+          "recall": 0.1178042263784309,
+          "delta_f1": -0.8730418537858348,
+          "changed_words": 34951,
+          "changed_tokenizations": 2145
+        }
+      },
+      "split": "validation",
+      "word_count": 43856,
+      "typo_rate_among_eligible": 0.15
+    },
+    "6.4": {
+      "device": "cpu",
+      "threads": 8,
+      "input_shape": [
+        16,
+        50
+      ],
+      "repeats": 12,
+      "torch_ms": 649.1063416675994,
+      "onnx_ms": 504.97253333378467,
+      "speedup": 1.285429006172387,
+      "pytorch": {
+        "f1_micro": 0.9472292342829667,
+        "f1_macro": 0.9449299145131475,
+        "precision": 0.9376487386958591,
+        "recall": 0.9570075297546757
+      },
+      "onnx": {
+        "f1_micro": 0.9472292342829667,
+        "f1_macro": 0.9449299145131475,
+        "precision": 0.9376487386958591,
+        "recall": 0.9570075297546757
+      },
+      "delta_f1": 0.0,
+      "changed_tags": 0,
+      "max_logit_delta": 3.921985626220703e-05,
+      "export_mib": 678.1890678405762
+    },
+    "6.5": {
+      "validation_baseline": {
+        "threshold": 0.0,
+        "precision": 0.9376487386958591,
+        "recall": 0.9570075297546757,
+        "f1_micro": 0.9472292342829667
+      },
+      "validation": {
+        "mean": {
+          "threshold": 0.8112116456031799,
+          "precision": 0.9607504319921008,
+          "recall": 0.9453485547728929,
+          "f1_micro": 0.9529872673849168,
+          "delta_f1": 0.005758033101950111
+        },
+        "min": {
+          "threshold": 0.7505877017974854,
+          "precision": 0.9610549667241804,
+          "recall": 0.9470488219577362,
+          "f1_micro": 0.9540004893564962,
+          "delta_f1": 0.006771255073529492
+        }
+      },
+      "selected": "min",
+      "test_baseline": {
+        "f1_micro": 0.9504532472370545,
+        "f1_macro": 0.9483067545656079,
+        "precision": 0.944471865745311,
+        "recall": 0.9565108722819295
+      },
+      "test_filtered": {
+        "f1_micro": 0.9532215357458075,
+        "f1_macro": 0.9505247526334134,
+        "precision": 0.9618320610687023,
+        "recall": 0.944763809047738
+      }
+    }
+  }
+}
